@@ -5,9 +5,10 @@
   connection: local
   gather_facts: no
   vars:
-    - rhsm_offline_token: MYTOKEN
+    - rhsm_offline_token: "{{ lookup('ansible.builtin.env', 'REDHAT_API_OFFLINE_TOKEN') }}"
     - rhsm_distribution: rhel-9
     - rhsm_image_name: my_rhel9_image
+    - rhsm_image_type: vsphere
     - rhsm_image_packages:
         - python39
     # - rhsm_dest_folder: /tmp    # optional for downloading vmdk, etc
